@@ -2,9 +2,12 @@ import { defineConfig } from "vite";
 import path from "path";
 
 export default defineConfig({
-  root: "public",          // ชี้ไป folder ที่มี index.html
+  root: "public",
   build: {
-    outDir: path.resolve(__dirname, "dist"), // build output
-    emptyOutDir: true
+    outDir: path.resolve(__dirname, "dist"),
+    emptyOutDir: true,
+    rollupOptions: {
+      input: path.resolve(__dirname, "public/index.html")
+    }
   }
 });
