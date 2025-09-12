@@ -14,12 +14,12 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "dist")));
 
 // Google Sheets config
-const SHEET_ID = process.env.SHEET_ID; // ตั้งค่าใน Render
+const SHEET_ID = process.env.SHEET_ID;
 const SHEET_SUBJECTS = "Subjects";
 const SHEET_ACTIVITIES = "Activities";
 
 const auth = new google.auth.GoogleAuth({
-  credentials: JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT), // JSON key ในรูป string
+  credentials: JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT),
   scopes: ["https://www.googleapis.com/auth/spreadsheets"],
 });
 
@@ -127,7 +127,8 @@ app.get("/api/data", async (req, res) => {
   }
 });
 
-app.get("/:all(.*)", (req, res) => {
+// Fallback → serve frontend (ใช้ regex แทน *)
+app.get(new RegExp(".*"), (req, res) => {
   res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
 
