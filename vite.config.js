@@ -1,19 +1,19 @@
+// vite.config.js
+
 import { defineConfig } from "vite";
 import path from "path";
 
 export default defineConfig({
-  root: ".", // root เป็น project root
-  publicDir: "public", // public folder
+  // ไม่ต้องกำหนด root และ build.rollupOptions.input แล้ว
+  // Vite จะหา index.html ที่ root project เองโดยอัตโนมัติ
+
   build: {
     outDir: "dist",
     emptyOutDir: true,
-    rollupOptions: {
-      input: path.resolve(__dirname, "public/index.html"), // ใช้ index.html จาก public
-    },
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src"), // สำหรับ import JS/CSS
+      "@": path.resolve(__dirname, "src"),
     },
   },
 });
