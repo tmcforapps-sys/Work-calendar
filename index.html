@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ปฏิทินกิจกรรม</title>
+</head>
+<body>
+
+<h1 class="sr-only">ปฏิทิน</h1>
+
+<div class="main-container">
+
+  <!-- แผงควบคุม -->
+  <div class="control-panel">
+    <h2>แผงควบคุม</h2>
+
+    <!-- ป้อนปี/เดือน -->
+    <div class="input-container">
+      <div class="input-row">
+        <label for="yearInput">ปี ค.ศ.:</label>
+        <input type="number" id="yearInput" value="2025" min="1900" max="3000">
+      </div>
+      <div class="input-row">
+        <label for="monthInput">เดือน (1-12):</label>
+        <input type="number" id="monthInput" value="7" min="1" max="12">
+      </div>
+      <div class="btn-row">
+        <button id="refreshBtn" class="secondary">รีเฟรชข้อมูล</button>
+      </div>
+      <button id="downloadBtn" class="primary full">ดาวน์โหลดปฏิทิน</button>
+    </div>
+
+    <!-- เพิ่มวิชาใหม่ -->
+    <h3>เพิ่มวิชาใหม่</h3>
+    <div class="input-container">
+      <div class="input-row">
+        <label for="newTitle">ชื่อวิชา:</label>
+        <input type="text" id="newTitle" placeholder="">
+      </div>
+      <div class="input-row">
+        <label for="newSubTitle">ชื่อรอง:</label>
+        <input type="text" id="newSubTitle" placeholder="">
+      </div>
+      <div class="input-row">
+        <span>ระดับ:</span>
+        <label><input type="radio" name="level" value="SEP"> SE</label>
+        <label><input type="radio" name="level" value="Dr"> Dr</label>
+        <label><input type="radio" name="level" value="CRM"> CR</label>
+        <label><input type="radio" name="level" value="AVSEC"> AV</label>
+        <label><input type="radio" name="level" value="FA"> FA</label>
+        <label><input type="radio" name="level" value="SMS"> SM</label>
+        <label><input type="radio" name="level" value="DG"> DG</label>
+        <label><input type="radio" name="level" value="ICC"> IC</label>
+        <label><input type="radio" name="level" value="Mng"> Mn</label>
+      </div>
+
+      <div class="input-row">
+        <span>สัญลักษณ์:</span>
+        <label><input type="radio" name="symbol" value="square"> □ Operation</label>
+        <label><input type="radio" name="symbol" value="circle"> ○ Ground</label>
+        <label><input type="radio" name="symbol" value="diamond"> ◆ All</label>
+      </div>
+
+      <div class="input-row two">
+        <div>
+          <label for="newStartTime">เวลาเริ่ม:</label>
+          <input type="time" id="newStartTime">
+        </div>
+        <div>
+          <label for="newEndTime">เวลาสิ้นสุด:</label>
+          <input type="time" id="newEndTime">
+        </div>
+      </div>
+
+      <button id="addSubjectBtn" class="full">เพิ่มวิชา</button>
+    </div>
+
+    <!-- ค้นหาและกรอง -->
+    <h3>ค้นหาและกรองวิชา</h3>
+    <div class="input-container">
+      <div class="input-row">
+        <label for="searchSubject">ค้นหาชื่อวิชา:</label>
+        <input type="text" id="searchSubject" placeholder="พิมพ์ชื่อวิชาเพื่อค้นหา...">
+      </div>
+      <div class="input-row">
+        <label for="filterSubject">แสดงเฉพาะวิชา:</label>
+        <select id="filterSubject">
+          <option value="">ทั้งหมด</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- รายการ draggable -->
+    <h3>รายการกิจกรรม</h3>
+    <ul class="draggable-items" id="draggableList"></ul>
+  </div>
+
+  <!-- ปฏิทิน -->
+  <div class="calendar-container">
+    <div id="calendarDisplay"></div>
+  </div>
+
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>
