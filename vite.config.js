@@ -3,6 +3,7 @@ import path from "path";
 
 export default defineConfig({
   root: ".", // project root
+  publicDir: "public", // copy static files เช่น index.html
   build: {
     outDir: "dist",       // build output
     emptyOutDir: true,
