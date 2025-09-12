@@ -3,17 +3,17 @@ import path from "path";
 
 export default defineConfig({
   root: ".", // project root
-  publicDir: "public", // copy static files เช่น index.html
+  publicDir: "public", // static files เช่น favicon, index.html
   build: {
-    outDir: "dist",       // build output
+    outDir: "dist",
     emptyOutDir: true,
     rollupOptions: {
-      input: path.resolve(__dirname, "public/index.html"), // ใช้ index.html จาก public
+      input: path.resolve(__dirname, "public/index.html"),
     },
   },
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src"), // shortcut สำหรับ import JS/CSS
+      "@": path.resolve(__dirname, "src"), // import JS/CSS จาก src
     },
   },
 });
