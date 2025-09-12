@@ -1,3 +1,4 @@
+import './style.css';
 let activities = {};
 let subjects = [];
 
